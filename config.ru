@@ -3,9 +3,9 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 
 # if Rails.env.production?
-#  DelayedJobWeb.use Rack::Auth::Basic do |username, password|
-#    username == 'admin' && password == 'password'
-#  end
+ DelayedJobWeb.use Rack::Auth::Basic do |username, password|
+   username == ENV['HUGINN_DJ_USER'] && password == ENV['HUGINN_DJ_PASSWORD']
+ end
 # end
 
 run Huginn::Application
